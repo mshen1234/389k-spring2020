@@ -5,7 +5,7 @@
 <head>
     <!-- meta-info here -->
 <title> Megan Shen Website </title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <!-- page content here -->

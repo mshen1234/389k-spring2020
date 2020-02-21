@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<style>
+p {color: red;}
+
+p.ex2 {display: inline;}
+p.ex3 {display: block;}
+</style>
+    <title>About</title>
+  </head>
+  <body>
+<img src="https://imgix.bustle.com/rehost/2016/9/13/468428af-1ae2-4ac3-a020-3db864f3c954.png?w=970&h=546&fit=crop&crop=faces&auto=format&q=70&dpr=2" width="800" height="345">
+  <div> I currently go to UMD and major in CS, but spend almost all my free time reading. I love how the publishing industry has started focusing on minority authors with the creation of "own voices". My favorite author is Celeste Ng, more specifically her book <span style="color:blue;font-weight:bold">"Everything I Never Told You."</span> </div>
+
+<div>
+One thing I hate is how school discourages people from reading. <p class="ex2">I've hated every single book I was required to read for school.</p>
+</div>
+<div>
+I hope that when people look into reading different genres that aren't academic, they can realize how fulfilling reading is. <p class="ex3">After all, books are a uniquely portable magic.</p>  
+</div>
+
+<p><a href="index2.html">Home</a></p>
+  </body>
+</html>

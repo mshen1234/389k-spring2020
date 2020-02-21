@@ -22,12 +22,26 @@
     </header>
     <article>
         <h3>Search Category:</h3>
+        // adding only ids doesnt do anything
         <input type="text" placeholder="Ex: Animal">
-        <button>Search! </button>
-        <button> Clear Results </button>
+        <button id="search_button"> Search! </button>
+        <button id="clear_results"> Clear Results </button>
+        <div id="results_container"></div>
     </article>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
     <script>
+    //captures the tag
+    //var search =$("#search_button")
+    //console.log(search)
+
+    if ("#search_button").on("click",function(){
+      var input=$("#category_field").val()
+$.get("https://api.umd.io/v0/courses/" + input, function(data){
+  console.log(data)
+})
+      //alert("input")
+    })
+
     </script>
 </body>
 

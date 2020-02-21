@@ -63,7 +63,7 @@ function isEmpty(ob){
 	     count+=dict[index].length;
 	 }
      }
-     return count/Object.keys(dict).length;
+	 return count;
  }
 
 

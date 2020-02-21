@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+
+
+<style>
+.hometown { 
+  background-color: #DC143C;
+}
+.introparagraph {
+  background-color: #FFD700;
+}
+#myHeader {
+  background-color: lightblue;
+  color: black;
+  padding: 40px;
+  margin: 35px;
+  text-align: center;
+} 
+#Header2 {
+  background-color: #FFA500;
+  color: black;
+  padding: 40px;
+  text-align: center;
+}
+
+.btn-group button {
+  background-color: #f44336;; /* red background */
+  border: 1px solid red; /* red border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  width: 50%; /* Set a width if needed */
+  display: block; /* Make the buttons appear below each other */
+}
+
+.btn-group button:not(:last-child) {
+  border-bottom: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #e7e7e7; color: black;;
+}
+@media (max-width: 1000px) {
+  body {
+    background-color: lightgreen;
+  }
+ 
+  #myHeader {
+    background-color: blue;
+}
+}
+
+</style>
+<body>
+
+<h1 class="hometown"> Megan Shen </h1>
+<h2  id="myHeader"> Welcome. </h2>
+<p><i> I love books </i></p>
+<img src="https://scontent.fewr1-5.fna.fbcdn.net/v/t1.0-9/85138796_872756106492477_7012713062062882816_o.jpg?_nc_cat=107&_nc_ohc=4k2m59L4V1IAX9qu7Qy&_nc_ht=scontent.fewr1-5.fna&oh=ddfdf8a0a99b140d52459ab3f1c69a29&oe=5ED38E15" width="500" height="500" >
+<p class="introparagraph"> You can't buy happiness but you can buy books and that's kind of the same thing.</p>
+<h3 id="Header2"> I have always imagined that paradise will be a kind of library. </h3>
+<div class="btn-group">
+  <button onclick="myFunction()">Home</button>
+  <button onclick="myFunction2()">About</button>
+  <button onclick="myFunction3()" >Favorite Books</button>
+</div>
+
+
+
+<script>
+function myFunction() {
+  location.replace("index2.html")
+}
+</script>
+
+<script>
+function myFunction2() {
+  location.replace("About.html")
+}
+</script>
+
+<script>
+function myFunction3() {
+  location.replace("Books.html")
+}
+</script>
+
+
+</body>
+</html>
