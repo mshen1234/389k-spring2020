@@ -1,0 +1,145 @@
+<!--
+    Here is a starting point for the project.
+    jQuery and a index.js file have been included for you.
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>50 State Game</title>
+    <style type="text/css">
+      /* Tooltip container */
+      .tooltip {
+        position: relative;
+        display: inline-block;
+        border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+      }
+
+      /* Tooltip text */
+      .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        padding: 5px 0;
+        border-radius: 6px;
+
+        /* Position the tooltip text - see examples below! */
+        position: absolute;
+        z-index: 1;
+      }
+
+      /* Show the tooltip text when you mouse over the tooltip container */
+      .tooltip:hover .tooltiptext {
+        visibility: visible;
+      }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!--
+    1. Implement the input element.
+        You'll need to answer the the following questions (and probably more):
+        1. What HTML tag inserts an input element?
+        2. How do I continuously check the contents of the input element without
+        the user hitting enter?
+        3. How do I disable the input bar if the game is not in session?
+    -->
+    <div class="container">
+    </div>
+
+Enter State: <input type="text" id="fname" onkeyup="myFunction()">
+
+    <!--
+    2. Implement the running list of states.
+        1. What HTML will be inserted each time a user enters a correct state?
+        2. How can I make sure the user can see all the states he/she has
+        already entered?
+        3. How will I trigger the network request to get the number of Spanish
+        speakers in a state (on hover)?
+        4. How will I seperate the entered states from missed states when the
+        game is over if the user lost the game?
+    -->
+
+
+
+
+    <!--
+    3. Implement the timer. This is almost all JavaScript.
+    --><script>
+    function startTimer(duration, display) {
+        //var timer = duration, minutes, seconds;
+        var timer = duration, minutes, seconds;
+        var x=setInterval(function () {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent = minutes + ":" + seconds;
+            if (written==3) {
+              display.textContent = "00" + ":" + "00";
+              clearTimeout(x);
+              $( ".container" ).append( "<p> You win </p>" );
+
+              $('#fname').off('keyup keydown keypress');
+              return;
+            }
+            if (--timer < 0) {
+                //timer = 0;
+                clearInterval(x);
+                //if (written==50) {
+
+                //}
+                var missedStates=[]
+                var ind;
+                for (ind=0;ind<cap.length;ind++) {
+                  if (!alreadyseen.includes(cap[ind])) {
+                    missedStates.push(cap[ind]);
+                  }
+                }
+
+                $( ".container" ).append( "<p>"+"Here is your score: "+written+ "/50"+ "</p>" );
+                $( ".container" ).append( "<p>"+"Here is what you missed: "+ missedStates.toString() +"</p>" );
+
+                return;
+            }
+        }, 1000);
+    }
+
+    //when timer = 0, call a function to end the game
+    function display(){
+    //Assigning the variable to the user input
+    	var userName = document.getElementById("userName").value;
+
+    // to print the input here
+    document.getElementById("printhere").innerHTML = userName;
+    }
+
+    window.onload = function () {
+        var fiveMinutes = 20,
+            display = document.querySelector('#time');
+        startTimer(fiveMinutes, display);
+    };
+    </script>
+
+    <!--
+    4. Implement the start button. The start button must activate the input box
+    to allow input start the timer.
+    -->
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
+    <script src="index.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        console.log(abvMap);
+    </script>
+        <div>Timer <span id="time">00:20</span> </div>
+</body>
+
+</html>
