@@ -3,9 +3,20 @@
 // (assume this is the full set of states.
 // This will make it easier to test.
 var states = ["Idaho", "South Dakota", "Hawaii", "Alaska", "Alabama", "New York"];
-
+var statesCap2 = ["IDAHO", "SOUTH DAKOTA", "HAWAII", "ALASKA", "ALABAMA", "NEW YORK"];
 // These are all the states. It maps the state name to the number which you'll
 // want to use in your API call.
+var missedMapCap={
+  "IDAHO": "114,560",
+  "SOUTH DAKOTA": "25,490",
+  "HAWAII": "16,215",
+  "ALASKA": "22,425",
+  "ALABAMA": "151,385",
+  "NEW YORK": "2,705,225",
+}
+
+
+
 var abvMap = {
     "Alabama": "01",
     "Alaska": "02",
@@ -185,19 +196,13 @@ var alreadyseen =[];
  var written=0;
  var left=50;
  var forgot=[];
+ var secc;
+ var x22;
+ var writ2=0;
 
- function myFunction() {
-/*
-  <div class="tooltip">
-  <span class="tooltiptext"></span>
-  </div>
-*/
-   var sec;
-   var x = document.getElementById("fname").value;
-   //var x = #$("#fname") doesnt work?
-
-   //var x2 =$("#fname")
-   //var x2 =(JSON.stringify(x)).toUpperCase();
+function myFunction() {
+  var sec;
+  var x = document.getElementById("fname").value;
    var x2 =x.toUpperCase();
    //check if not guessed make a div, jquery append
 
@@ -205,25 +210,30 @@ var alreadyseen =[];
    alreadyseen.push(x2);
    written+=1;
    left-=1;
+   if (statesCap2.includes(x2)){
+     writ2+=1;
+   }
 
-$( ".container" ).append( "<p>"+x2+"</p>" );
-
-  var number=capMap[x2];
-  //console.log(x2);
-  //console.log(number);
-
-
+$( ".container" ).append( "<p id="+x2+">"+ x2 +"</p>" );
+var first1;
+var number=capMap[x2];
 
    $.get("https://api.census.gov/data/2013/language?get=EST,LANLABEL,NAME&for=state:"+ number +"&LAN=625",function(json){
      var first=json[1];
      sec=first[0];
      sec=numberWithCommas(sec);
-     console.log(sec);
-   });
 
- }
- //console.log(written);
- //console.log(x2);
+     $("p").hover(
+       function() {
+         $(this).append($( "<b> "+sec+ "</b>"));
+         this.substring(sec.length);
+       }, function() {
+        $(this).find( "b" ).last().remove();
+       }
+     );
+
+   });
+}
 
  //display the correct state, add to total, decr, put in new array of states found,
 //use div container, jquery append to display list of state names

@@ -8,38 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <title>50 State Game</title>
-    <style type="text/css">
-      /* Tooltip container */
-      .tooltip {
-        position: relative;
-        display: inline-block;
-        border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
-      }
-
-      /* Tooltip text */
-      .tooltip .tooltiptext {
-        visibility: hidden;
-        width: 120px;
-        background-color: black;
-        color: #fff;
-        text-align: center;
-        padding: 5px 0;
-        border-radius: 6px;
-
-        /* Position the tooltip text - see examples below! */
-        position: absolute;
-        z-index: 1;
-      }
-
-      /* Show the tooltip text when you mouse over the tooltip container */
-      .tooltip:hover .tooltiptext {
-        visibility: visible;
-      }
-
-    </style>
-
-</head>
-
+  </head>
 <body>
 
     <!--
@@ -50,9 +19,13 @@
         the user hitting enter?
         3. How do I disable the input bar if the game is not in session?
     -->
-    <div class="container">
-    </div>
+<div class="container"></div>
 
+<div class="cont2"></div>
+
+<div class="cont3"></div>
+
+<div id="log"></div>
 Enter State: <input type="text" id="fname" onkeyup="myFunction()">
 
     <!--
@@ -66,12 +39,10 @@ Enter State: <input type="text" id="fname" onkeyup="myFunction()">
         game is over if the user lost the game?
     -->
 
-
-
-
     <!--
     3. Implement the timer. This is almost all JavaScript.
-    --><script>
+    -->
+    <script>
     function startTimer(duration, display) {
         //var timer = duration, minutes, seconds;
         var timer = duration, minutes, seconds;
@@ -83,32 +54,99 @@ Enter State: <input type="text" id="fname" onkeyup="myFunction()">
             seconds = seconds < 10 ? "0" + seconds : seconds;
 
             display.textContent = minutes + ":" + seconds;
-            if (written==3) {
+
+            if (writ2==6) {
               display.textContent = "00" + ":" + "00";
               clearTimeout(x);
-              $( ".container" ).append( "<p> You win </p>" );
-
-              $('#fname').off('keyup keydown keypress');
+              $( ".container" ).append( "<b> You win </b>" );
+              $( ".container" ).append( "<b>"+"Here is your score: "+ "6/6"+ "</b>" );
+                $('#fname').prop('disabled',true);
               return;
             }
             if (--timer < 0) {
-                //timer = 0;
-                clearInterval(x);
-                //if (written==50) {
-
-                //}
-                var missedStates=[]
-                var ind;
-                for (ind=0;ind<cap.length;ind++) {
-                  if (!alreadyseen.includes(cap[ind])) {
-                    missedStates.push(cap[ind]);
+              clearInterval(x);
+              var missedStates=[];
+              var ind;
+                for (ind=0;ind<statesCap2.length;ind++) {
+                  if (!alreadyseen.includes(statesCap2[ind])) {
+                    missedStates.push(statesCap2[ind]);
                   }
                 }
+                $( ".container" ).append( "<b>"+"Here is your score: "+writ2+ "/6"+ "</b>" );
+                $( ".container" ).append( "<b>"+" Here is what you missed: "+"</b>" );
+                var indexx=0;
+                var idt;
+                  for (indexx=0;indexx<missedStates.length;indexx++){
+                    idt=missedStates[indexx];
+                    if (idt=="NEW YORK") {
+                      idt="NEWYORK";
+                      $(".cont2").append( "<p id="+idt+">"+missedStates[indexx]+ "</p>" );
+                    } else if (idt=="SOUTH DAKOTA") {
+                      idt="SOUTHDAKOTA";
+                      $(".cont2").append( "<p id="+idt+">"+missedStates[indexx]+ "</p>" );
+                    } else{
+                        $(".cont2").append( "<p id="+idt+">"+missedStates[indexx]+ "</p>" );
+                    }
+                  //  console.log(idt);
+                  }
 
-                $( ".container" ).append( "<p>"+"Here is your score: "+written+ "/50"+ "</p>" );
-                $( ".container" ).append( "<p>"+"Here is what you missed: "+ missedStates.toString() +"</p>" );
+                  //console.log($( "#missedStates[indexx]"));
+                  $("#SOUTHDAKOTA").hover(function() {
+                    //$( "#log" ).( "<div>114,560</div>" );
+                    document.getElementById("log").innerHTML = "16,215";
+                    //alert("16,215 SD")
+                  }, function() {
+                  document.getElementById("log").innerHTML = "";
+                  }
+                  );
 
-                return;
+                  $("#IDAHO").hover(function() {
+                    //$( "#log" ).( "<div>114,560</div>" );
+                    document.getElementById("log").innerHTML = "114,560";
+                    //alert("idaho");
+                  }, function() {
+                  document.getElementById("log").innerHTML = "";
+                  }
+                  );
+
+                  $("#HAWAII").hover(function() {
+                    //$( "#log" ).( "<div>114,560</div>" );
+                    document.getElementById("log").innerHTML = "25,490";
+                    //alert("hawa");
+                  }, function() {
+                  document.getElementById("log").innerHTML = "";
+                  }
+                  );
+
+                  $("#ALASKA").hover(function() {
+                    //$( "#log" ).( "<div>114,560</div>" );
+                    document.getElementById("log").innerHTML = "22,425";
+                    //alert("alaska");
+                  }, function() {
+                  document.getElementById("log").innerHTML = "";
+                  }
+                  );
+
+                  $("#ALABAMA").hover(function() {
+                    //$( "#log" ).( "<div>114,560</div>" );
+                    document.getElementById("log").innerHTML = "151,385";
+                    //alert("alabama");
+                  }, function() {
+                  document.getElementById("log").innerHTML = "";
+                  }
+                  );
+
+                  $("#NEWYORK").hover(function() {
+                    //$( "#log" ).( "<div>114,560</div>" );
+                    document.getElementById("log").innerHTML = "2,705,225";
+                    //alert("NY");
+                  }, function() {
+                  document.getElementById("log").innerHTML = "";
+                  }
+                  );
+
+              $('#fname').prop('disabled',true);
+                //return;
             }
         }, 1000);
     }
