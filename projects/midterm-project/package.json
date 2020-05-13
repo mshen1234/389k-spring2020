@@ -13,6 +13,11 @@
         "body-parser": "^1.17.1",
         "express": "^4.15.2",
         "express-handlebars": "^3.0.0",
-        "morgan": "^1.8.1"
+        "marked": "^0.8.2",
+        "morgan": "^1.8.1",
+        "underscore": "^1.10.2"
+    },
+    "devDependencies": {
+        "@types/underscore": "^1.9.4"
     }
 }

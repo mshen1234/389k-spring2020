@@ -20,10 +20,18 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.post('/movie', function(req, res) {
     // Create new movie
-
+    var movie = new Movie({
+        title: req.body.title,
+        genre: req.body.genre,
+        year: parseInt(req.body.year),
+        reviews: []
+    });
 
     // Save movie to database
-
+    movie.save(function(err) {
+        if (err) throw err;
+        return res.send('Succesfully inserted movie.');
+    });    
 
 });
 

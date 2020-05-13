@@ -1,0 +1,34 @@
+<article style="background-color:powderblue;">
+  <h1>Create New Book Review</h1>
+    <form method="POST" action="/create">
+        <div class="input-field">
+            <label>Book Title</label>
+            <input type="text" name="title" size="20" placeholder="Book Title">
+        </div>
+        <div class="input-field">
+            <label>Pages</label>
+            <input type="text" name="pages" size="20" placeholder="Put the number of pages">
+        </div>
+        <div class="input-field">
+            <label>Year</label>
+            <input type="text" name="year" size="20" placeholder="Put the year published">
+        </div>
+        <div class="input-field">
+            <label>Rating</label>
+            <input type="text" name="rating" size="20" placeholder="Put a integer from 1 to 5 for rating out of 5">
+        </div>
+        <div class="input-field">
+            <label>Genre</label>
+            <textarea type="text" name="genre" size="20" placeholder="Genre"></textarea>
+        </div>
+        <div class="input-field">
+            <label>Review</label>
+            <textarea type="text" name="comment" rows="20" placeholder="Write Review here..."></textarea>
+        </div>
+        <div class="input-field">
+            <label>Author</label>
+            <textarea type="text" name="author" rows="20" placeholder="Write Author here..."></textarea>
+        </div>
+        <button type="submit">Create Book Review </button>
+    </form>
+</article>

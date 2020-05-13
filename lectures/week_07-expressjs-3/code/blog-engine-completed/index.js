@@ -13,7 +13,7 @@ var PORT = 8000;
 
 var _DATA = dataUtil.loadData().blog_posts;
 
-/// MIDDLEWARE 
+/// MIDDLEWARE
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -36,7 +36,7 @@ app.get("/create", function(req, res) {
 app.post('/create', function(req, res) {
     var body = req.body;
 
-    // Transform tags and content 
+    // Transform tags and content
     body.tags = body.tags.split(" ");
     body.content = marked(body.content);
 

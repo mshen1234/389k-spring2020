@@ -1,0 +1,78 @@
+<!--
+<form id="book">
+<input name="title" id="title" type="text" placeholder="Beauty and a Beast"/>
+<button>POST</button>
+</form>
+-->
+
+<!--THIS WORKS -->
+<style>
+.header {
+  padding: 40px;
+  text-align: center;
+  background: #F1948A;
+  color: white;
+  font-size: 20px;
+}
+#myHeader2{
+  padding: 40px;
+  text-align: center;
+  background: #EC7063  ;
+  color: white;
+  font-size: 20px;
+}
+</style>
+<div>
+  <input type="text" id="myInput" placeholder="Search for a book title.." title="Type in a name">
+</div>
+<h1 class="header">The number of people (or tabs) active on the homepage right now: </h1>
+<h2 id="myHeader2">num</h2>
+<div id="renderList"></div>
+
+<br>
+<ul id="bokList">
+{{#each book}}
+<article>
+<li class="title">{{title}}: {{genre}}: {{pages}} pages: published {{year}}: Review {{this.reviews}}
+</li>
+</article>
+{{/each}}
+<!--END OF WORKS HERE-->
+
+
+<!--
+{{#each review}}
+<li>{{{comment}}}</li>
+{{/each}}
+-->
+
+
+</ul>
+<p id="demo"></p>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script>
+$('#myInput').on('keyup',function() {
+  var arr1=document.getElementsByClassName("title")
+  var arr3=document.getElementsByTagName("article")
+
+  var filter,input
+  input = String(document.getElementById("myInput").value);
+  filter=input.toUpperCase();
+var countOcc=0;
+  for (var j=0;j<arr1.length;j++) {
+    if (String(arr1[j].innerText).startsWith(filter)) {
+       arr3[j].style.display = "";
+    } else {
+    countOcc++;
+     arr3[j].style.display = "none";
+    }
+  }
+  if (countOcc==arr1.length) {
+      document.getElementById('renderList').innerHTML = 'No matches';
+
+  } else {
+    document.getElementById('renderList').innerHTML = ""
+  }
+
+})
+</script>

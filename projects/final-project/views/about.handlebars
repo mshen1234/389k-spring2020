@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Page Title</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/* Style the body */
+body {
+  font-family: Arial;
+  margin: 0;
+}
+
+/* Header/Logo Title */
+.header {
+  padding: 60px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+  font-size: 20px;
+}
+
+/* Page Content */
+.content {padding:20px;}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Welcome to my book review site</h1>
+</div>
+
+<div class="content">
+  <h1>by Megan Shen</h1>
+  <p>This site is for making book reviews, where the titles act as the key in the search bar.</p>
+  <p> I also use titles the users have inputted to display a random historical, science fiction, or classic book. The other
+  2 sites, getRandomBookOfWeek and getNewRandomBook, rely on 2 new npm packages, the node module fullstack-book-of-the-week and
+  the node module booktoread.
+The first one, getRandomBookOfWeek, displays a tech book that might be enjoyed by the fullstack developer.
+The other one, getNewRandomBook, returns a new award winning book each time.
+</p>
+  <p>Yes I am aware the reviews for some reason are rendering as objects. If there is an existing review,
+    [object Object] is displayed. Otherwise, it is blank since there are no reviews yet. I tried everything and
+    was not able to display correctly them but regardless, all the JSON points can be viewed in the get /book so
+    the content of the reviews can be seen that way.
+  </p>
+</div>
+
+</body>
+</html>

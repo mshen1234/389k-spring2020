@@ -3,13 +3,13 @@
 
 ---
 
-Name: 
+Name: Megan Shen
 
-Date: 
+Date: 4/9/20
 
-Project Topic: 
+Project Topic: Book Reviews
 
-URL: 
+URL: http://localhost:3000/
 
 ---
 
@@ -17,38 +17,52 @@ URL:
 ### 1. Data Format and Storage
 
 Data point fields:
-- `Field 1`:     ...       `Type: ...`
-- `Field 2`:     ...       `Type: ...`
-- `Field 3`:     ...       `Type: ...`
-- `Field 4`:     ...       `Type: ...`
-- `Field 5`:     ...       `Type: ...`
+- `Field 1`: Book Title     `Type: String`
+- `Field 2`: Pages          `Type: Integer`
+- `Field 3`: Rating         `Type: Integer`
+- `Field 4`: Book Slug      `Type: String`
+- `Field 5`: Book Tags      `Type: [String]`
+- `Field 6`: Author         `Type: String`
+- `Field 7`: Review         `Type: String`
 
-Schema: 
+Schema:
 ```javascript
 {
-   ...
+  "title":String,
+  "pages":Integer,
+  "rating":Integer,
+  "slug":String,
+  "tags":[String],
+  "Author":String,
+  "reviews":String
 }
 ```
 
 ### 2. Add New Data
 
-HTML form route: `/...`
+HTML form route: `/create`
 
-POST endpoint route: `/api/...`
+POST endpoint route: `/api/create`
 
-Example Node.js POST request to endpoint: 
+Example Node.js POST request to endpoint:
 ```javascript
 var request = require("request");
 
-var options = { 
+var options = {
     method: 'POST',
-    url: 'http://localhost:3000/api/...',
-    headers: { 
-        'content-type': 'application/x-www-form-urlencoded' 
+    url: 'http://localhost:3000/api/create',
+    headers: {
+        'content-type': 'application/x-www-form-urlencoded'
     },
-    form: { 
-       ...
-    } 
+    form: {
+      "title":"THE GREAT GATSBY",
+      "pages":218,
+      "rating":1,
+      "slug":"THE_GREAT_GATSBY",
+      "tags":["classic","mysterious"],
+      "Author":"SCOTT FITZGERALD",
+      "reviews":"this was overhyped"
+    }
 };
 
 request(options, function (error, response, body) {
@@ -60,18 +74,17 @@ request(options, function (error, response, body) {
 
 ### 3. View Data
 
-GET endpoint route: `/api/...`
+GET endpoint route: `/api/allBookReviews`
 
 ### 4. Search Data
 
-Search Field: ...
+Search Field: title
 
 ### 5. Navigation Pages
 
 Navigation Filters
-1. name -> `  route  `
-2. ... -> `  ...  `
-3. ... -> `  ...  `
-4. ... -> `  ...  `
-5. ... -> `  ...  `
-
+1. Most recent highest rated book -> `/getHighestRecentRatedBook`
+2. Get all books labeled classic -> `/getAllclassics`
+3. Get all authors alphabetically -> `/getAuthorsAlphabetical`
+4. Get all the titles alphabetically -> `/getTitlesAlphabetical`
+5. Get the longest book -> `/getLongestBook`

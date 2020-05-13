@@ -2,21 +2,132 @@
 <html lang="en">
 
 <head>
+  <style>
+  ul#proList{list-style-position: inside}
+  li.item{list-style:none; padding:5px;}
+  </style>
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="/public/css/main.css">
   <title>Final Project</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+  <script type="text/javascript"></script>
 </head>
+
 <div class="nav">
   <div>
-    <a href="/Players">Players</a>
-    <a href="/Sports">Sports</a>
-    <a href="/States">States</a>
-    <a href="/Alphabetical">Alphabetical</a>
-    <a href="/Championships">Championships</a>
+    <a href="/getHighestRecentRatedBook">Get the recent highest rated book</a>
+    <a href="/getAllclassics">Get all the books labeled classic</a>
+    <a href="/getAuthorsAlphabetical">Get the authors sorted alphabetically</a>
+    <a href="/getTitlesAlphabetical">Get the titles sorted alphabetically</a>
+    <a href="/getLongestBook">Get the longest book</a>
   </div>
 </div>
 
+<div>
+  <input type="text" id="myInput" placeholder="Search for a book title.." title="Type in a name">
+</div>
+
+
+<body>
+{{! 3 semi colors body 3 semi colon }}
+<div id="renderList"></div>
+
+<div class="demo">
+{{{body}}}
+</div>
+
+<div class="NoMAtch">
+<p> </p>
+</div>
+
+<script>
+/*
+(function(){
+    var ul = document.createElement('ul');
+    ul.setAttribute('id','proList');
+
+    //productList = document.getElementsByTagName("title")
+    productList = [];
+    var pp=document.getElementsByClassName("title");
+    for (var v=0;v<pp.length;v++) {
+      productList.push(String(pp[v].innerText))
+    }
+
+    document.getElementById('renderList').appendChild(ul);
+    productList.forEach(renderProductList);
+
+    function renderProductList(element, index, arr) {
+        var li = document.createElement('li');
+        li.setAttribute('class','item');
+
+        ul.appendChild(li);
+
+        li.innerHTML=li.innerHTML + element;
+    }
+})();
+
+*/
+
+//document.getElementById("demo").innerHTML= "Paragraph changed!";
+$('#myInput').on('keyup',function() {
+  //var array=$(“article”).get()//gives array of all article tags
+  //var arr1=document.getElementsByTagName("article") //using this
+
+  var arr1=document.getElementsByClassName("title")
+  var arr3=document.getElementsByTagName("article")
+  var err=document.getElementsByTagName("NoMatch")
+
+  //var arr2=document.getElementsByClassName("demo")
+  var arr2= document.querySelector('.demo');
+  var children = arr2.children
+  var filter,input
+  //var count=0;
+  input = String(document.getElementById("myInput").value);
+  filter=input.toUpperCase();
+  //console.log(arr1[0].innerText)
+  //console.log(arr1.length)
+  ul = document.getElementById("renderList");
+  li = ul.getElementsByTagName("li");
+
+
+//console.log(arr3)
+var countOcc=0;
+  for (var j=0;j<arr1.length;j++) {
+    if (String(arr1[j].innerText).startsWith(filter)) {
+      //console.log("true")
+      //arr1[j].style.display = "";
+       //li[j].style.display = "";
+       arr3[j].style.display = "";
+       //console.log("nothing")
+    } else {
+    //console.log("false")
+    //arr1[j].style.display ="none";
+    countOcc++;
+     //li[j].style.display = "none";
+     arr3[j].style.display = "none";
+    }
+  }
+  if (countOcc==arr1.length) {
+      document.getElementById('renderList').innerHTML = 'No matches';
+
+  } else {
+    document.getElementById('renderList').innerHTML = ""
+  }
+
+})
+
+
+</script>
+</body>
+<!--
+<ul>
+{{#each arr1}}
+<li>{{ this }}</li>
+{{/each}}
+</ul>
+-->
+
+<!--
 <body>
   <button type="button" id="createNew">Enter a Team</button> {{{body}}}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
@@ -26,5 +137,5 @@
     });
   </script>
 </body>
-
+-->
 </html>

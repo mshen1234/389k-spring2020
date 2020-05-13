@@ -1,0 +1,9 @@
+{"blog_posts":[{"title":"THE GREAT GATSBY","pages":218,"rating":1,"slug":"THE_GREAT_GATSBY",
+"tags":["classic","mysterious"],"Author":"SCOTT FITZGERALD","reviews":"this was overhyped"},
+{"title":"1984","pages":328,"rating":1,"slug":"1984",
+"tags":["dystopian","science","classic"],"Author":"GEORGE ORWELL","reviews":"Dark and unpleasant"},
+{"title":"OLIVER TWIST","pages":608,"rating":3,"slug":"OLIVER_TWIST",
+"tags":["classic","victorian"],"Author":"CHARLES DICKENS","reviews":"It was ok"},
+{"title":"THE BOAT","pages":228,"rating":2,"slug":"THE_BOAT",
+"tags":["short","Asia"],"Author":"NAM LE","reviews":"mediocre at best"}
+]}

@@ -10,7 +10,8 @@ var contacts = {}
 
 app.use('/public', express.static('public'));
 app.use(logger('dev'))
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.engine('handlebars', exphbs({defaultLayout: 'main'})); //start with main handlebars
+//rendering,look if theres room,
 app.set('view engine', 'handlebars');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -44,6 +45,8 @@ app.get('/sqroot', function(req, res) {
 })
 
 var past = [];
+//first grab the operation, ex:factorial, then number
+//then render operation handlebar
 app.get("/operation/:op", function(req, res) {
     var op = req.params.op;
     var number = req.query.number;
