@@ -286,6 +286,6 @@ io.emit('userLog',s);
 });
 
 
-http.listen(process.env.PORT || 3000, function(){
+http.listen(3000, function(){
     console.log('Example app listening on port 3000!');
 });
